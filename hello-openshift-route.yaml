@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    name: hello-openshift-route
+  name: hello-openshift-route
+  namespace: hello-openshift
+spec:
+  host: hello-openshift-svc-hello-openshift.apps.ocpmcmt.ocaso.es
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: hello-openshift
+  wildcardPolicy: None
